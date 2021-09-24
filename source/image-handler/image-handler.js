@@ -194,7 +194,7 @@ class ImageHandler {
             `<svg viewBox="0 0 ${width} ${height}"> <ellipse cx="${leftOffset}" cy="${topOffset}" rx="${radiusX}" ry="${radiusY}" /></svg>`
           );
           const params = [{ input: ellipse, blend: "dest-in" }];
-          let data = await image.composite(params).toBuffer();
+          let data = await image.png().composite(params).toBuffer();
           image = sharp(data).withMetadata().trim();
         }
       } else if (editKey === "contentModeration") {
